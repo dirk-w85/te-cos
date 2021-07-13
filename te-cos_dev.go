@@ -11,7 +11,6 @@ import (
 	"github.com/pelletier/go-toml"
 )
 
-
 func ErrorCheck(e error) {
     if e != nil {
 		log.Fatalln(e)
@@ -19,10 +18,7 @@ func ErrorCheck(e error) {
     }
 }
 
-
 func main() {
 	config, _ := toml.LoadFile("config.toml")
-	// retrieve data directly
-	user := config.Get("account.token").(string)
-	log.Println(user)
+	log.Println(config.Get("account.token").(string))
 }
